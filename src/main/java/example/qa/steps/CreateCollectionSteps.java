@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CreateCollectionSteps extends BaseCollectionSteps {
 
     public Collection userCreatesNewCollection() {
-        return createCollectionWithName("junit-autotest " + ZonedDateTime.now());
+        return createCollectionWithName("j-test " + ZonedDateTime.now());
     }
 
     public void newCollectionIsAdded(Collection collection) {
