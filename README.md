@@ -1,8 +1,8 @@
 # java-rest-junit
 
-It's the same test project as https://github.com/lvasileva/java-rest-cucumber, but this time without cucumber
+It's the same test project as https://github.com/lvasileva/java-rest-cucumber, but this time without cucumber.
 
-The test run is scheduled to be started at 09:10 UTC on every Monday. The badge is presented the last state of the run. Java CI with Maven
+The test run is scheduled to be started at 09:10 UTC on every Monday. The badge is presented the last state of the run. 
 
 Here is the project running API tests for the unsplash site at: https://unsplash.com/. The API documentation can be found here: https://unsplash.com/documentation
 
