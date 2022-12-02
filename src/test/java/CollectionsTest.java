@@ -9,13 +9,6 @@ public class CollectionsTest extends AbstractTest {
 
     public static Collection collection;
 
-    @AfterEach
-    void cleanUpCollection() {
-        if (baseCollectionSteps.isUserCollectionExistByName(InitializerSteps.username, collection.getTitle())) {
-            deleteCollectionSteps.deleteCollectionById(collection.getId());
-        }
-    }
-
     @Test
     @DisplayName("Authorized user is able to create a new collection")
     void authorizedUserIsAbleToCreateANewCollection() {
@@ -34,7 +27,6 @@ public class CollectionsTest extends AbstractTest {
         updateCollectionSteps.theCollectionNameIsUpdated(newCollection, collectionName);
     }
 
-
     @Test
     @DisplayName("Authorized user is able to delete the collection")
     void authorizedUserIsAbleToDeleteTheCollection() {
@@ -43,5 +35,17 @@ public class CollectionsTest extends AbstractTest {
         collection = updateCollectionSteps.userSCollectionWithNameIsExist(collectionName);
         deleteCollectionSteps.userDeletesTheCollection(collection);
         deleteCollectionSteps.theCollectionIsDeleted(collection);
+    }
+
+    @AfterEach
+    void cleanUpCollection() {
+        if (collection==null) {
+            //do nothing, the collection is already not there
+        }
+        else {
+            if (baseCollectionSteps.isUserCollectionExistByName(InitializerSteps.username, collection.getTitle())) {
+                deleteCollectionSteps.deleteCollectionById(collection.getId());
+            }
+        }
     }
 }
