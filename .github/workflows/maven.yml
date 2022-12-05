@@ -31,9 +31,7 @@ jobs:
       env: 
         UNSPLASH_TOKEN: ${{secrets.UNSPLASH_TOKEN}}
     - name: Build test report 
-      uses: dorny/test-reporter@v1
-      if: success() || failure()    
-      with:
-          name: Tests            
-          path: target/surefire-reports/TEST-CollectionsTest.xml    
-          reporter: java-junit
+      uses: mikepenz/action-junit-report@v3.6.1
+      if: always()
+      with: 
+        report_paths: target/surefire-reports/TEST-CollectionsTest.xml
