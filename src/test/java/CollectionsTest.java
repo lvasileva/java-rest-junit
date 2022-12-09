@@ -11,7 +11,7 @@ public class CollectionsTest extends AbstractTest {
 
     @Test
     @DisplayName("Authorized user is able to create a new collection")
-    void authorizedUserIsAbleToCreateANewCollection() {
+    void authorizedUserIsAbleToCreateANewCollection() throws Exception {
         initializerSteps.userIsAuthorized();
         collection = createCollectionSteps.userCreatesNewCollection();
         createCollectionSteps.newCollectionIsAdded(collection);
@@ -19,7 +19,7 @@ public class CollectionsTest extends AbstractTest {
 
     @Test
     @DisplayName("Authorized user is able to update the collection")
-    void authorizedUserIsAbleToUpdateTheCollection() {
+    void authorizedUserIsAbleToUpdateTheCollection() throws Exception {
         initializerSteps.userIsAuthorized();
         String collectionName = "Junit collection to be updated";
         collection = updateCollectionSteps.userSCollectionWithNameIsExist(collectionName);
@@ -29,7 +29,7 @@ public class CollectionsTest extends AbstractTest {
 
     @Test
     @DisplayName("Authorized user is able to delete the collection")
-    void authorizedUserIsAbleToDeleteTheCollection() {
+    void authorizedUserIsAbleToDeleteTheCollection() throws Exception {
         initializerSteps.userIsAuthorized();
         String collectionName = "Junit collection to be deleted";
         collection = updateCollectionSteps.userSCollectionWithNameIsExist(collectionName);
@@ -38,11 +38,8 @@ public class CollectionsTest extends AbstractTest {
     }
 
     @AfterEach
-    void cleanUpCollection() {
-        if (collection==null) {
-            //do nothing, the collection is already not there
-        }
-        else {
+    void cleanUpCollection() throws Exception {
+        if (collection != null) {
             if (baseCollectionSteps.isUserCollectionExistByName(InitializerSteps.username, collection.getTitle())) {
                 deleteCollectionSteps.deleteCollectionById(collection.getId());
             }

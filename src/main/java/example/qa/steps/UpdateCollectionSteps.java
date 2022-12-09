@@ -6,14 +6,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class UpdateCollectionSteps extends BaseCollectionSteps {
 
-    public Collection userSCollectionWithNameIsExist(String collectionName) {
+    public Collection userSCollectionWithNameIsExist(String collectionName) throws Exception {
         if (!isUserCollectionExistByName(InitializerSteps.username, collectionName)) {
             createCollectionWithName(collectionName);
         }
         return getUserCollectionByName(InitializerSteps.username, collectionName);
     }
 
-    public Collection userUpdatesTheCollectionNameTo(Collection collection, String collectionName) {
+    public Collection userUpdatesTheCollectionNameTo(Collection collection, String collectionName) throws Exception {
         return updateCollectionNameById(collection.getId(), collectionName);
     }
 

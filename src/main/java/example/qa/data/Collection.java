@@ -13,7 +13,7 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonIgnoreProperties(value = { "cover_photo", "preview_photos"})
+@JsonIgnoreProperties(value = {"cover_photo", "preview_photos"})
 public class Collection {
 
     @JsonProperty("id")
