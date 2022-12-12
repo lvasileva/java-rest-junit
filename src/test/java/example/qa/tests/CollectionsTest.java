@@ -1,3 +1,5 @@
+package example.qa.tests;
+
 import example.qa.data.Collection;
 import example.qa.steps.InitializerSteps;
 import org.junit.jupiter.api.AfterEach;
