@@ -1,3 +1,5 @@
+package example.qa.tests;
+
 import example.qa.steps.*;
 
 public class AbstractTest {
